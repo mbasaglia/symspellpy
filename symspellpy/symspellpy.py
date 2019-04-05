@@ -203,8 +203,13 @@ class SymSpell(object):
             self._deletes[delete].remove(key)
         return True
 
-    def load_dictionary(self, corpus, term_index, count_index,
-                        encoding=None):
+    def load_dictionary(
+        self,
+        corpus=os.path.join(os.path.dirname(__file__), "frequency_dictionary_en_82_765.txt"),
+        term_index=0,
+        count_index=1,
+        encoding=None
+    ):
         """Load multiple dictionary entries from a file of
         word/frequency count pairs. Merges with any dictionary data
         already loaded.
