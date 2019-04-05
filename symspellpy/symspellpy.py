@@ -1,3 +1,4 @@
+# -*- coding: utf8
 """
 .. module:: symspellpy
    :synopsis: Module for Symmetric Delete spelling correction algorithm.
@@ -12,8 +13,8 @@ import pickle
 import re
 import sys
 
-from symspellpy.editdistance import DistanceAlgorithm, EditDistance
-import symspellpy.helpers as helpers
+from .editdistance import DistanceAlgorithm, EditDistance
+from . import helpers
 
 class Verbosity(Enum):
     """Controls the closeness/quantity of returned spelling
@@ -221,7 +222,8 @@ class SymSpell(object):
         """
         if not os.path.exists(corpus):
             return False
-        with open(corpus, "r", encoding=encoding) as infile:
+        openkw = {} if sys.version_info.major < 3 else {"encoding": encoding}
+        with open(corpus, "r", **openkw) as infile:
             for line in infile:
                 line_parts = line.rstrip().split(" ")
                 if len(line_parts) >= 2:

@@ -1,3 +1,4 @@
+# -*- coding: utf8
 """
 .. module:: editdistance
    :synopsis: Module for edit distance algorithms.
@@ -6,7 +7,7 @@ from enum import Enum
 
 import numpy as np
 
-import symspellpy.helpers as helpers
+from . import helpers
 
 class DistanceAlgorithm(Enum):
     """Supported edit distance algorithms"""
