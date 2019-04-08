@@ -58,7 +58,7 @@ setup(
     author_email=about["__author_email__"],
     url=about["__url__"],
     packages=packages,
-    package_data={"": ["LICENSE", "NOTICE"], "requests": ["*.pem"]},
+    package_data={"": ["LICENSE", "NOTICE"], "requests": ["*.pem"], "symspellpy": ["*.txt"]},
     package_dir={"requests": "requests"},
     include_package_data=True,
     python_requires=">=2.7",
