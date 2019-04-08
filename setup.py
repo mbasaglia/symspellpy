@@ -39,11 +39,10 @@ test_requirements = [
 ]
 
 about = {}
-with open(os.path.join(cwd, "symspellpy", "__version__.py"), "r",
-          encoding="utf-8") as infile:
+openkw = {} if sys.version_info.major < 3 else {"encoding": "utf-8"}
+with open(os.path.join(cwd, "symspellpy", "__version__.py"), "r") as infile:
     exec(infile.read(), about)
 
-openkw = {} if sys.version_info.major < 3 else {"encoding": "utf-8"}
 with open(os.path.join(cwd, "README.md"), "r", **openkw) as infile:
     readme = infile.read()
 with open(os.path.join(cwd, "CHANGELOG.md"), "r", **openkw) as infile:
