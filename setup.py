@@ -43,10 +43,10 @@ with open(os.path.join(cwd, "symspellpy", "__version__.py"), "r",
           encoding="utf-8") as infile:
     exec(infile.read(), about)
 
-with open(os.path.join(cwd, "README.md"), "r", encoding="utf-8") as infile:
+openkw = {} if sys.version_info.major < 3 else {"encoding": "utf-8"}
+with open(os.path.join(cwd, "README.md"), "r", **openkw) as infile:
     readme = infile.read()
-with open(os.path.join(cwd, "CHANGELOG.md"), "r",
-          encoding="utf-8") as infile:
+with open(os.path.join(cwd, "CHANGELOG.md"), "r", **openkw) as infile:
     changelog = infile.read()
 
 setup(
@@ -62,7 +62,7 @@ setup(
     package_data={"": ["LICENSE", "NOTICE"], "requests": ["*.pem"]},
     package_dir={"requests": "requests"},
     include_package_data=True,
-    python_requires=">=3.4",
+    python_requires=">=2.7",
     install_requires=requires,
     license=about["__license__"],
     zip_safe=False,
@@ -72,6 +72,8 @@ setup(
         "Natural Language :: English",
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
